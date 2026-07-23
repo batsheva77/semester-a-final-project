@@ -1,1 +1,1 @@
-# semster-a-final-project
+# semester-a-final-project
