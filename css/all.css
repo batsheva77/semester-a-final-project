@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Assistant:wght@300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050510; 
+    color: #ffffff;
+    font-family: 'Assistant', sans-serif; 
+    overflow-x: hidden;
+}
+
+#all {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+}
+
+#all > a {
+    position: fixed;
+    right: 0; 
+    bottom: 20px;
+    width: 170px;
+    height: 60px;
+    
+
+    background: rgba(0, 210, 255, 0.1); 
+    backdrop-filter: blur(8px); 
+    
+   
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-right: none;
+    border-radius: 40px 0 0 40px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif; 
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.4), 
+    inset 5px 0 15px rgba(0, 210, 255, 0.1);
+    
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#all > a:hover {
+    width: 190px; 
+    background: rgba(0, 210, 255, 0.2);
+    color: #ffffff;
+    border-color: #00ffff;
+    box-shadow: -5px 5px 25px rgba(0, 210, 255, 0.4);
+    text-shadow: 0 0 8px #00ffff;
+}
+.back-link {
+    display: block;   
+    margin-bottom: 20px; 
+    text-decoration: none; 
+    color: blue;        
+}
+
+#goTo{
+    margin: 100px 100px 100px 100px;
+    color: #ffffff;
+    background-color: rgba(0, 210, 255, 0.1);  
+    height: 30vh;
+    width: 90vw;
+    padding:  100px 100px 100px 100px;
+    text-align: center;
+}
