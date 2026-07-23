@@ -1,0 +1,294 @@
+
+body {
+  background-image: url('../image/555555.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+#profilePic img {
+  border-radius: 50%;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  width: 60px;
+  height: 60px;
+}
+
+#userNameAndProfilePic {
+display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto; /* במקום 1200px */
+  width: fit-content;
+}
+ #userName{
+  font-size: 1.2rem;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+ }
+#main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  width: 100%;
+  max-width: 1200px;
+
+  margin-top: 30px;
+  overflow-x: auto; 
+  padding-bottom: 20px;
+
+
+}
+
+#score {
+  background: rgba(15, 15, 35, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid #b834c4;
+  border-radius: 20px;
+  padding: 25px;
+  min-width: 280px;
+  box-shadow: 0 0 20px rgba(162, 16, 206, 0.3);
+  text-align: center;
+}
+
+#score p {
+  font-size: 0.85rem;
+  color: #dd00ff;
+  margin: 20px 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#score div[id^="level"] {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  display: inline-block;
+}
+
+#game-area {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0; /* מונע מכל האזור להימעך */
+}
+
+#gameBoard {
+background-color: rgba(20, 20, 40, 0.8);
+  padding: 15px;
+  border: 2px solid #9025a8;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(99, 6, 113, 0.3);
+  
+  /* התיקון: */
+  width: max-content; 
+  display: block;
+}
+  .cell {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  flex: 0 0 40px !important; 
+  background-color: #2a2a4a;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.cell:hover {
+  background-color: #3a3a6a;
+}
+
+.cell.open {
+background-color: transparent;
+  color: #00ffff;
+  border-color: #000000;
+  flex: 0 0 40px !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.95) 0%,rgba(22, 33, 62, 0.95) 100%);
+  border: 2px solid #9f139f;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: 0 0 15px rgba(139, 10, 151, 0.4);
+}
+
+#flags {
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700;
+  font-size: 1.3rem;
+}
+#timer {
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  font-size: 1.3rem;
+}
+
+
+
+
+#winningAlert,
+#loosingAlert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  padding: 100px 60px;
+  min-width: 650px;
+  border-radius: 50px;
+  text-align: center;
+  z-index: 10000;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.9);
+  
+
+  animation: giantPopIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes giantPopIn {
+  0% { transform: translate(-50%, -50%) scale(0.2) rotate(-10deg); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+}
+
+#winningAlert {
+  border: 10px solid #00ff00;
+  background: rgba(0, 30, 10, 0.98);
+  color: #00ff00;
+}
+
+#loosingAlert {
+  border: 10px solid #ff4500;
+  background: rgba(30, 0, 0, 0.98);
+  color: #ff4500;
+}
+
+#winningAlert h2, #loosingAlert h2 {
+  font-size: 6rem; 
+  margin: 0;
+  text-transform: uppercase;
+}
+
+#winningAlert a, #loosingAlert a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 25px 60px;
+  margin-top: 40px;
+  border: 4px solid #fff;
+  border-radius: 60px;
+  font-size: 2rem;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+
+#winningAlert a:hover { background: #00ff00; color: #000; box-shadow: 0 0 50px #00ff00; transform: scale(1.1); }
+#loosingAlert a:hover { background: #ff4500; color: #000; box-shadow: 0 0 50px #ff4500; transform: scale(1.1); }
+
+
+
+
+
+
+.shake-board {
+  animation: shake 0.5s;
+}
+@keyframes shake {
+  0%,100% {transform: translate(0, 0);}
+  25% { transform: translate(-5px, 0); }
+  75% { transform: translate(5px, 0); }
+}
+
+@media (max-width: 900px) {
+  #main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+#boardAndScore {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 150px;
+    width: fit-content; 
+    margin: 20px 20px 0 auto; 
+}
+#levelBack > a {
+    position: fixed;
+    right: 0; 
+    bottom: 100px;
+    width: 170px;
+    height: 60px;
+    
+    background: rgba(0, 210, 255, 0.1); 
+    backdrop-filter: blur(8px); 
+    
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-right: none;
+    border-radius: 40px 0 0 40px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif; 
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.4), 
+    inset 5px 0 15px rgba(0, 210, 255, 0.1);
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#levelBack > a:hover {
+    width: 190px; 
+    background: rgba(0, 210, 255, 0.2);
+    color: #ffffff;
+    border-color: #00ffff;
+    box-shadow: -5px 5px 25px rgba(0, 210, 255, 0.4);
+    text-shadow: 0 0 8px #00ffff;
+}
+.back-link {
+    display: block;     
+    margin-bottom: 20px; 
+    text-decoration: none; 
+    color: blue;      
+}
